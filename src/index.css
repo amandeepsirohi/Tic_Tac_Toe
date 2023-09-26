@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+font-family: 'Borel', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Ubuntu Condensed', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(18, 18, 59);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

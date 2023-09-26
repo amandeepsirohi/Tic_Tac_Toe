@@ -1,0 +1,15 @@
+/* .boxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    height: 100px;
+    width: 100px;
+    background-color: aliceblue;
+    border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
+} */
