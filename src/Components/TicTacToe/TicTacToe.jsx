@@ -12,6 +12,7 @@ const Status = Object.freeze({
 });
 
 const emptyBoard = [0, 0, 0].fill([0, 0, 0].fill(CellValue.EMPTY));
+const boxSize = "h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36";
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(emptyBoard);
@@ -82,10 +83,12 @@ const TicTacToe = () => {
   return (
     <div className="flex items-center justify-center h-screen min-w-screen bg-gradient-to-r from-indigo-500 to-indigo-600">
       <div className="max-w-7xl p-4 md:p-8">
-        <div className="flex flex-row justify-between items-center mb-4">
-          <h6 className="text-3xl text-indigo-100 font-bold"> Tic-Tac-Toe </h6>
+        <div className="flex flex-row justify-between items-center mb-4 mx-1">
+          <h6 className="text-xl lg:text-3xl text-indigo-100 font-bold">
+            Tic-Tac-Toe
+          </h6>
           <button
-            className="border-2 border-indigo-100 rounded-md px-4 py-1 text-indigo-100 active:scale-110 transition-all duration-300"
+            className="text-xs md:text-sm lg:text-md px-2 md:px-3 lg:px-4 py-1 border-2 border-indigo-100 rounded-md text-indigo-100 active:scale-110 transition-all duration-300"
             onClick={resetGame}
           >
             Reset Board
@@ -97,15 +100,19 @@ const TicTacToe = () => {
               {row.map((col, y) => (
                 <button
                   key={y * 10 + x}
-                  className={`h-36 w-36 bg-indigo-100 rounded-xl cursor-pointer active:scale-125 transition-all duration-300 ease-in-out disabled:pointer-events-none ${
+                  className={`${boxSize} rounded-md cursor-pointer active:scale-125 transition-all duration-300 ease-in-out disabled:pointer-events-none ${
                     moveCount === 0 ? "animate-grow" : ""
+                  } ${
+                    status === Status.FINISHED
+                      ? "bg-indigo-200"
+                      : "bg-indigo-100"
                   }`}
                   disabled={
                     col !== CellValue.EMPTY || status === Status.FINISHED
                   }
                   onClick={(e) => updateBoard(x, y)}
                 >
-                  <div className="text-6xl font-mono text-indigo-900 select-none">
+                  <div className="text-2xl sm:text-4xl lg:text-6xl font-mono text-indigo-900 select-none">
                     {col}
                   </div>
                 </button>
@@ -113,7 +120,7 @@ const TicTacToe = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center bg-indigo-100 rounded-xl mt-4 py-2 text-indigo-900">
+        <div className="flex items-center justify-center bg-indigo-100 rounded-md mt-4 py-2 text-indigo-900">
           {status === Status.FINISHED ? (
             <p>
               Game Over: {winner === CellValue.EMPTY ? "Draw" : winner + " Won"}
