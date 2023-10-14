@@ -12,7 +12,8 @@ const Status = Object.freeze({
 });
 
 const emptyBoard = [0, 0, 0].fill([0, 0, 0].fill(CellValue.EMPTY));
-const boxSize = "h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36";
+const boxSize =
+  "h-24 w-24 sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40 xl:h-44 xl:w-44";
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(emptyBoard);
